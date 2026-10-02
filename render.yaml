@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: erazch-install
+    runtime: python
+    plan: free
+    buildCommand: pip install -U -r requirements.txt
+    startCommand: gunicorn app:app --workers 1 --threads 8 --timeout 300 --bind 0.0.0.0:$PORT
